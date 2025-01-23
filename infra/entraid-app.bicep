@@ -8,7 +8,14 @@ param appRegistrationName string = ''
 // https://learn.microsoft.com/en-us/graph/templates/reference/applications?view=graph-bicep-1.0
 resource appRegistration 'Microsoft.Graph/applications@v1.0' = {
   displayName: appRegistrationName
-  uniqueName: appRegistrationName 
+  uniqueName: appRegistrationName
+
+  // // Create a client secret
+  // passwordCredentials: [
+  //   {
+  //     displayName: 'generated during Bicep template deployment'
+  //   }
+  // ]
 }
 
 output appRegistrationClientId string = appRegistration.appId
