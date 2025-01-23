@@ -9,6 +9,11 @@ param environmentName string
 @description('Primary location for all resources')
 param location string
 
+resource rg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
+  name: environmentName
+  location: location
+}
+
 module entraAppRegistration 'entraid-app.bicep' = {
   name: 'entraAppRegistration'
   params: {
